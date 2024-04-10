@@ -1,0 +1,73 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:wght@100..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      :root {
+        --stroke-gradient: linear-gradient(17deg, #0085d0 0%, #ff00e5 100%);
+        --bg-gradient: linear-gradient(47deg, #0085d0 0%, #ff00e5 100%);
+        --text-gradient: linear-gradient(
+          90deg,
+          var(--pink) 0%,
+          var(--blue) 100%
+        );
+        --pink-light: linear-gradient(90deg, #ff00e5 0%, #ff00e5 100%);
+        --blue-light: linear-gradient(
+          90deg,
+          #0085d0 0%,
+          #0085d0 0.01%,
+          #0085d0 100%
+        );
+        --pink: #ff00e5;
+        --blue: #0085d0;
+        --black: #121212;
+        --white: #ffffff;
+        --gray: #a39f9f;
+        --headline1-bold: 700 1.5rem / normal Roboto Mono;
+        --headline2-bold: 700 1rem / normal Roboto Mono;
+        --headline2-medium: 500 1rem / normal Roboto Mono;
+        --button-semibold: 500 0.75rem / normal Montserrat;
+        --body1-regular: 400 0.75rem / normal Roboto Mono;
+        --body2-semibold: 600 0.5rem / normal Montserrat;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--black);
+        font: var(--headline1-bold);
+        color: var(--white);
+      }
+
+      .title-gradient {
+        background: var(--text-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </body>
+</html>

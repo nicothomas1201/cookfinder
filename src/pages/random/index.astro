@@ -1,0 +1,68 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import CardRecipie from '@/components/CardRecipie.astro'
+---
+
+<Layout title="Random">
+  <main>
+    <div class="card-container">
+      <button>
+        <span class="change-title">Change</span>
+      </button>
+      <CardRecipie />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    inline-size: 100vw;
+    block-size: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+
+    button {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      /* .change-title {
+        font: var(--headline2-bold);
+        background-image: linear-gradient(
+          to right,
+          var(--gray),
+          var(--gray) 33.33333%,
+          var(--pink) 66.66666%,
+          var(--blue)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 300% 100%;
+        background-position: top left;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          background-position: top left 100%;
+        }
+      } */
+
+      .change-title {
+        font: var(--headline2-bold);
+        color: var(--gray);
+        transition: color 0.5s ease-out;
+        &:hover {
+          color: var(--white);
+        }
+      }
+    }
+  }
+</style>

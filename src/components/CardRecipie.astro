@@ -1,0 +1,53 @@
+---
+import IngredientTag from './IngredientTag.astro'
+---
+
+<div class="card">
+  <div class="recipe-img"></div>
+  <h3 class="card-title">Nombre receta</h3>
+  <p class="card-description">Descripcion receta</p>
+  <div class="card-ingredients">
+    <IngredientTag name="Tomato" />
+    <IngredientTag name="Onion" />
+    <IngredientTag name="Garlic" />
+    <IngredientTag name="Pasta" />
+  </div>
+</div>
+
+<style>
+  .card {
+    inline-size: 280px;
+    border: none;
+    border-radius: 11px;
+    background: var(--bg-gradient);
+    padding: 1rem;
+
+    .recipe-img {
+      width: 100%;
+      height: 200px;
+      background-image: url('https://www.themealdb.com/images/media/meals/yyrrxr1511816289.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center;
+      border-radius: 11px;
+    }
+
+    .card-title {
+      font: var(--headline2-medium);
+      margin-block-start: 8px;
+      margin-block-end: 0px;
+    }
+
+    .card-description {
+      font: var(--body1-regular);
+      margin-block-start: 0;
+      margin-block-end: 32px;
+    }
+
+    .card-ingredients {
+      display: flex;
+      gap: 8px;
+      /* margin-block: 9px; */
+    }
+  }
+</style>

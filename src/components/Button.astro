@@ -1,0 +1,42 @@
+---
+interface Props {
+  text: string
+  to?: string
+}
+
+const { text, to = '' } = Astro.props
+---
+
+<div class="border-bg">
+  <!-- <a href=""> -->
+  <a href={to} class="button">
+    {text}
+  </a>
+</div>
+
+<style>
+  .border-bg {
+    padding-block: 2px;
+    padding-inline: 2px;
+    background-image: var(--stroke-gradient);
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 0px 4.5px #0084d08d;
+
+    .button {
+      border: none;
+      position: relative;
+      font: var(--button-semibold);
+      color: var(--white);
+      padding-block: 10px;
+      padding-inline: 16px;
+      background-color: var(--black);
+      cursor: pointer;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+  }
+</style>

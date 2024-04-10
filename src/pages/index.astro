@@ -1,0 +1,39 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Button from '@/components/Button.astro'
+import Light from '@/components/Light.astro'
+---
+
+<Layout title="Cookfinder">
+  <main id="main">
+    <div class="light blue"></div>
+    <div class="light pink"></div>
+    <h1 class="main-title">
+      Descubre nuevos <span class="title-gradient">sabores</span>
+    </h1>
+    <Button to="/random" text="Ver recetas" />
+  </main>
+</Layout>
+
+<style>
+  #main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    inline-size: 100vw;
+    block-size: 100vh;
+    gap: 2rem;
+    position: relative;
+    /* overflow: hidden; */
+
+    h1 {
+      margin: 0;
+    }
+
+    .main-title {
+      color: var(--white);
+      font: var(--headline1-bold);
+    }
+  }
+</style>
