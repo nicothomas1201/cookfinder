@@ -1,0 +1,141 @@
+---
+import { GET } from '../api/recipes/[id].json'
+import Layout from '@/layouts/Layout.astro'
+
+// Dentro de Astro.params se encuentran los paramentros de la url [id]
+// Por lo que no es necesario que la mandemos de nuevo, ya que se obtiene
+// desde la API
+const response = await GET(Astro)
+const data = await response.json()
+const recipeTitle = data.strMeal
+const recipeInstructions = data.strInstructions
+const recipeImg = data.strMealThumb
+---
+
+<Layout title="recipe">
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/recipes">Recipes</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="wrapper">
+    <div class="recipe-container">
+      <div class="recipe-img">
+        <img src={recipeImg} alt={recipeTitle} width="320" height="360" />
+      </div>
+      <!-- TODO: Mirar la posibilidad de crear un sidebar donde este la imagen
+      los ingredientes y porciones
+      -->
+      <!-- <div class="recipe-sidebar">
+        <p>Maybe her can go the ingredients and mesuare</p>
+      </div> -->
+      <div class="recipe-content">
+        <h1>{recipeTitle}</h1>
+        <h2>Instructions</h2>
+        <p>{recipeInstructions}</p>
+        <!-- <p>{recipeInstructions}</p> -->
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  header {
+    padding: 32px 80px;
+    font: var(--body1-regular);
+    background-image: linear-gradient(47deg, #0084d06e 0%, #ff00e671 100%);
+    opacity: 1;
+    color: var(--white);
+    inline-size: 100%;
+    box-sizing: border-box;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 32px;
+      li a {
+        color: var(--white);
+        text-decoration: none;
+        font: var(--button-semibold);
+      }
+    }
+  }
+
+  .wrapper {
+    max-inline-size: 1050px;
+    inline-size: 100%;
+    margin: auto;
+  }
+
+  .recipe-container {
+    box-sizing: border-box;
+    margin-block-start: 40px;
+    padding-inline: 16px;
+    inline-size: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    block-size: 100%;
+    max-block-size: 587px;
+    overflow: auto;
+
+    .recipe-img {
+      position: sticky;
+      top: 0;
+      max-inline-size: 320px;
+      width: 100%;
+      block-size: auto;
+      aspect-ratio: 320/360;
+      border-radius: 12px;
+      overflow: hidden;
+
+      img {
+        inline-size: 100%;
+        vertical-align: middle;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .recipe-content {
+      inline-size: 100%;
+      h1 {
+        margin-block-start: 0;
+        margin-block-end: 16px;
+        font: var(--headline1-bold);
+      }
+      h2 {
+        font: var(--headline2-medium);
+        margin-block-start: 32px;
+        margin-block-end: 0;
+      }
+      p {
+        /* margin: 16px; */
+        margin-block-start: 8px;
+        font: var(--body1-regular);
+        color: var(--gray);
+        line-height: 30px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    .recipe-container {
+      flex-direction: column;
+      /* gap: 16px; */
+      .recipe-img {
+        max-inline-size: 100%;
+        block-size: 300px;
+        /* aspect-ratio: 20; */
+      }
+    }
+  }
+</style>

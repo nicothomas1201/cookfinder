@@ -7,14 +7,13 @@ export function CardRecipe() {
   const recipe = useRecipesStore((state) => state.recipe)
 
   useEffect(() => {
-    fetch('/api/random-recipe')
+    fetch('/api/recipes/random.json')
       .then((res) => res.json())
       .then((data) => setRecipe(data))
       .catch((err) => console.error(err))
   }, [])
 
   const ingredients = useMemo(() => {
-    // strMealThumb
     const ingredients = []
     for (let i = 1; i <= 4; i++) {
       if (!recipe) return []
@@ -32,7 +31,7 @@ export function CardRecipe() {
   if (!recipe) return <div>Loading...</div>
 
   return (
-    <div className="card">
+    <a href={`/recipes/${recipe.idMeal}`} className="card">
       <div className="recipe-img">
         <img src={recipe.strMealThumb} />
       </div>
@@ -45,6 +44,6 @@ export function CardRecipe() {
           </span>
         ))}
       </div>
-    </div>
+    </a>
   )
 }

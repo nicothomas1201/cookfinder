@@ -3,6 +3,8 @@
   border: none;
   border-radius: 11px;
   background: var(--bg-gradient);
+  color: var(--white);
+  text-decoration: none;
   padding: 1rem;
 
   .recipe-img {
