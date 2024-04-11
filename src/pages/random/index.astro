@@ -1,15 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import CardRecipie from '@/components/CardRecipie.astro'
+import { CardRecipe } from '@/components/CardRecipe'
+import { ChangeRecipeButton } from '@/components/ChangeRecipeButton'
 ---
 
 <Layout title="Random">
   <main>
     <div class="card-container">
-      <button>
-        <span class="change-title">Change</span>
-      </button>
-      <CardRecipie />
+      <ChangeRecipeButton client:load />
+      <CardRecipe client:load />
     </div>
   </main>
 </Layout>
@@ -29,40 +28,5 @@ import CardRecipie from '@/components/CardRecipie.astro'
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
-
-    button {
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      /* .change-title {
-        font: var(--headline2-bold);
-        background-image: linear-gradient(
-          to right,
-          var(--gray),
-          var(--gray) 33.33333%,
-          var(--pink) 66.66666%,
-          var(--blue)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 300% 100%;
-        background-position: top left;
-        transition: all 0.5s ease-in-out;
-
-        &:hover {
-          background-position: top left 100%;
-        }
-      } */
-
-      .change-title {
-        font: var(--headline2-bold);
-        color: var(--gray);
-        transition: color 0.5s ease-out;
-        &:hover {
-          color: var(--white);
-        }
-      }
-    }
   }
 </style>

@@ -1,0 +1,15 @@
+.button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  .change-title {
+    font: var(--headline2-bold);
+    color: var(--gray);
+    transition: color 0.5s ease-out;
+    &:hover {
+      color: var(--white);
+    }
+  }
+}
