@@ -17,6 +17,8 @@ export function CardRecipe() {
     // strMealThumb
     const ingredients = []
     for (let i = 1; i <= 4; i++) {
+      if (!recipe) return []
+
       if (recipe[`strIngredient${i}`]) {
         ingredients.push({
           name: recipe[`strIngredient${i}`],
@@ -26,6 +28,8 @@ export function CardRecipe() {
     }
     return ingredients
   }, [recipe])
+
+  if (!recipe) return <div>Loading...</div>
 
   return (
     <div className="card">

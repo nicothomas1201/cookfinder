@@ -3,6 +3,8 @@ export interface Root {
 }
 
 export interface Meal {
+  [key: string]: string | any
+
   idMeal: string
   strMeal: string
   strDrinkAlternate: any
