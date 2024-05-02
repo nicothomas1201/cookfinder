@@ -1,3 +1,65 @@
+.skeleton {
+  width: 300px;
+  padding: 20px;
+  background-color: #333; /* Cambiado a un gris más fuerte */
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.skeleton-img {
+  height: 200px;
+  margin-block-end: 10px;
+  border-radius: 11px;
+}
+
+.skeleton-title,
+.skeleton-description,
+.skeleton-ingredients {
+  height: 20px;
+  background-color: #555; /* Cambiado a un gris aún más fuerte */
+  margin-bottom: 10px;
+}
+
+.skeleton-img {
+  width: 100%;
+}
+
+.skeleton-title {
+  width: 80%;
+}
+
+.skeleton-description {
+  width: 90%;
+}
+
+.skeleton-ingredients {
+  width: 70%;
+}
+
+/* Animación de carga */
+@keyframes loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.skeleton-img,
+.skeleton-title,
+.skeleton-description,
+.skeleton-ingredients {
+  animation: loading 1.5s infinite linear;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  background-size: 200px 100%;
+}
+
 .card {
   inline-size: 300px;
   border: none;

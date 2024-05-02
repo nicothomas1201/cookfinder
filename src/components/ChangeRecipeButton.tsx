@@ -4,10 +4,13 @@ import { useRecipesStore } from '@/store/recipesStore'
 
 export function ChangeRecipeButton() {
   const setRecipe = useRecipesStore((state) => state.setRecipe)
+  const setLoading = useRecipesStore((state) => state.setLoading)
 
   const changeRecipe = async () => {
-    const response = await fetch('/api/random-recipe')
+    setLoading(true)
+    const response = await fetch('/api/recipes/random.json')
     const data = await response.json()
+    setLoading(false)
     setRecipe(data)
   }
 

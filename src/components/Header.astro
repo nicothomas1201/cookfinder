@@ -1,0 +1,60 @@
+<header class="header">
+  <nav>
+    <ul>
+      <li>
+        <a href="/recipes">Home</a>
+      </li>
+      <li>
+        <a href="/recipes">Recipes</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector('.header') as HTMLElement
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < 20) {
+      header.style.opacity = '1'
+    } else {
+      header.style.opacity = '0'
+    }
+  })
+</script>
+
+<style>
+  .header {
+    /* opacity: 0; */
+    transition: opacity 0.3s ease;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 80px;
+    font: var(--body1-regular);
+    /* background-image: linear-gradient(47deg, #0084d06e 0%, #ff00e671 100%); */
+    background-image: linear-gradient(47deg, #2e8fc8 0%, #fc33e8 100%);
+    /* opacity: 1; */
+    color: var(--white);
+    inline-size: 100%;
+    box-sizing: border-box;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 32px;
+      li a {
+        color: var(--white);
+        text-decoration: none;
+        font: var(--button-semibold);
+      }
+    }
+  }
+
+  .header:hover {
+    opacity: 1 !important;
+  }
+</style>
